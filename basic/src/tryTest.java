@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class tryTest {
     public static void main(String[] args) {
@@ -17,10 +18,11 @@ public class tryTest {
 //        System.out.println(checkPowersOfThree(91));
 //        System.out.println(checkPowersOfThree(12));
 
-        int[] arr = {5, 7, 2, 3, 8, 1, 4};
-        int idx = Partition(arr, 0, arr.length - 1);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+        int[] arr = {5, 6, 8, 7, 4, 0, 3, 1, 9, 2};
+        int[] arr2 = {7686, 97012948, 84234023, 2212638, 99};
+        int[] t = sortJumbled(arr, arr2);
+        for (int i = 0; i < t.length; i++) {
+            System.out.println(t[i]);
         }
 
     }
@@ -397,7 +399,159 @@ public class tryTest {
         return false;
     }
 
+    public int passThePillow(int n, int time) {
+        int completed = time / (n - 1);
+        int remaining = time % (n - 1);
+        int ans = 0;
+        if (completed % 2 != 0) {
+            ans = n - remaining;
+        } else {
+            ans = remaining + 1;
+        }
+        return ans;
+    }
+
+    public int numWaterBottles(int numBottles, int numExchange) {
+        int ans = numBottles;
+
+        while (numBottles >= numExchange) {
+            int ans1 = Math.floorDiv(numBottles, numExchange);
+            ans += ans1;
+            numBottles = ans1 + numBottles % numExchange;
+        }
+
+        return ans;
+    }
+
+    public String[] sortPeople(String[] names, int[] heights) {
+
+        Pair[] arr = new Pair[names.length];
+
+        for (int i = 0; i < names.length; i++) {
+            arr[i] = new Pair(names[i], heights[i]);
+        }
+
+        Arrays.sort(arr, new Comparator<Pair>() {
+            @Override
+            public int compare(Pair o1, Pair o2) {
+                return o1.val - o2.val;
+            }
+        });
+
+        for (int i = 0; i < names.length; i++) {
+            names[i] = arr[i].s1;
+        }
+        return names;
+    }
+
+    public class Pair {
+        String s1;
+        int val;
+
+        public Pair(String s1, int val) {
+            this.s1 = s1;
+            this.val = val;
+        }
+    }
+
+    public int[] frequencySort(int[] nums) {
+        HashMap<Integer, Integer> mp = new HashMap<>();
+        Integer[] ans = new Integer[nums.length];
+
+        for (int i = 0; i < nums.length; i++) {
+            mp.put(nums[i], mp.getOrDefault(nums[i], 0) + 1);
+            ans[i] = nums[i];
+        }
+//
+//        LinkedHashMap<Integer, Integer> sortedMap = mp.entrySet()
+//                .stream()
+//                .sorted(Map.Entry.comparingByValue())
+//                .collect(Collectors.toMap(
+//                        Map.Entry::getKey,
+//                        Map.Entry::getValue,
+//                        (e1, e2) -> e1,
+//                        LinkedHashMap::new
+//                ));
+
+        Arrays.sort(ans, (n1, n2) -> {
+            if (mp.get(n1) != mp.get(n2)) {
+
+                return mp.get(n1) - mp.get(n2);
+            } else {
+                // otherwise sort them in decreasing order based on number in nums.
+                return n2 - n1;
+            }
+        });
+
+//        int j = 0;
+//        for (Map.Entry<Integer, Integer> entry : sortedMap.entrySet()) {
+//            for (int i = 0; i < entry.getValue(); i++) {
+//                nums[j++] = entry.getKey();
+//            }
+//        }
+
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = ans[i];
+        }
+
+        return nums;
+    }
+
+    public static int[] sortJumbled(int[] mapping, int[] nums) {
+        Integer[] ans = new Integer[nums.length];
+
+        for (int i = 0; i < nums.length; i++) {
+            ans[i] = nums[i];
+        }
+
+        Arrays.sort(ans, (n1, n2) -> {
+            int ele1 = map(mapping, n1);
+            int ele2 = map(mapping, n2);
+            if (ele1 != ele2) {
+
+                return ele1 - ele2;
+            } else {
+                // otherwise sort them in decreasing order based on number in nums.
+                return ele2 - ele1;
+            }
+        });
+
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = ans[i];
+        }
+
+        return nums;
+    }
+
+    public static int map(int[] arr, int ele) {
+        if (ele == 0) {
+            return arr[0];
+        }
+        int ans = 0;
+        int pow1 = 1;
+
+        while (ele > 0) {
+            int n = ele % 10;
+            ans = arr[n] * pow1 + ans;
+            pow1 *= 10;
+            ele /= 10;
+        }
+
+        return ans;
+    }
+
+    public int[] sortArray(int[] nums) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            pq.add(nums[i]);
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = pq.poll();
+        }
+
+        return nums;
+    }
+
 }
-
-
-

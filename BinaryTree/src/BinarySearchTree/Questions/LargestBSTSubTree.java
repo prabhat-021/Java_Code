@@ -41,7 +41,7 @@ public class LargestBSTSubTree {
         sbstp.sum = lbstp.sum + rbstp.sum + root.val;
 
         if (sbstp.isBst) {
-            sbstp.size = lbstp.size + rbstp.size;
+            sbstp.size = lbstp.size + rbstp.size + 1;
             sbstp.ans = Math.max(sbstp.sum, Math.max(lbstp.ans, rbstp.ans));
         } else {
             sbstp.size = Math.max(lbstp.size, rbstp.size);

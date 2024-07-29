@@ -96,33 +96,36 @@ public class BinaryTree1 {
     }
 
     private int hight(Node node) {
-        if (node == null) return -1;
+        if (node == null) return 0;
         int left = hight(node.left);
         int right = hight(node.right);
         return Math.max(left, right) + 1;
     }
 
     public void PreOrder() {
-        PreOrder(this.root);
+        List<Integer> ll = new ArrayList<>();
+        PreOrder(this.root, ll);
         System.out.println();
     }
 
-    private void PreOrder(Node node) {
-        if (node == null) return;
-        System.out.println(node.val + " ");
-        PreOrder(node.left);
-        PreOrder(node.right);
+    private List<Integer> PreOrder(Node node, List<Integer> ll) {
+        if (node == null) return new ArrayList<>();
+        ll.add(node.val);
+//        System.out.println(node.val + " ");
+        PreOrder(node.left, ll);
+        PreOrder(node.right, ll);
+        return ll;
     }
 
     public void PostOrder() {
-        PreOrder(this.root);
+        PostOrder(this.root);
         System.out.println();
     }
 
     private void PostOrder(Node node) {
         if (node == null) return;
-        PreOrder(node.left);
-        PreOrder(node.right);
+        PostOrder(node.left);
+        PostOrder(node.right);
         System.out.println(node.val + " ");
     }
 
@@ -143,24 +146,20 @@ public class BinaryTree1 {
     }
 
     public List<List<Integer>> levelOrder(Node root) {
-        if(root==null) return new ArrayList<>();
+        if (root == null) return new ArrayList<>();
 
         Queue<Node> qp = new LinkedList<>();
         List<List<Integer>> ans = new ArrayList<>();
         qp.add(root);
         while (!qp.isEmpty()) {
-            Node rm = qp.poll(); // remove first
+            int noEle = qp.size();
             List<Integer> ll = new ArrayList<>();
-            if (rm.left != null) {
-                ll.add(rm.left.val);
-                qp.add(rm.left);
+            for (int i = 0; i < noEle; i++) {
+                if (qp.peek().left != null) qp.add(qp.peek().left);
+                if (qp.peek().right != null) qp.add(qp.peek().right);
+                ll.add(qp.poll().val);
             }
-            if (rm.right != null) {
-                ll.add(rm.right.val);
-                qp.add(rm.right);
-            }
-            if(ll.size()!=0)
-                ans.add(ll);
+            ans.add(ll);
         }
 //        System.out.println();
         return ans;

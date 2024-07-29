@@ -10,6 +10,7 @@ public class CelebrityProblem {
         for (int i = 0; i < n; i++) {
             st.push(i);
         }
+
         while (st.size() > 1) {
             int v1 = st.pop();
             int v2 = st.pop();
@@ -17,6 +18,7 @@ public class CelebrityProblem {
             else if (m[v2][v1] == 0) st.push(v2);
         }
         if (st.size() == 0) return -1;
+
         int potential = st.pop();
         for (int i = 0; i < n; i++) {
             if (i == potential) continue;

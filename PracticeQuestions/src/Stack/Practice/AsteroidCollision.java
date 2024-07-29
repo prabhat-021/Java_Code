@@ -15,16 +15,16 @@ public class AsteroidCollision {
         Stack<Integer> st = new Stack<>();
         st.push(asteroids[0]);
         for (int i = 1; i < asteroids.length; i++) {
-            if (st.size() > 0 && st.peek() < 0) {
+            if (!st.isEmpty() && st.peek() < 0) {
                 st.push(asteroids[i]);
             } else {
                 if (asteroids[i] > 0) {
                     st.push(asteroids[i]);
                 } else {
-                    while (st.size() > 0 && st.peek() > 0 && st.peek() < Math.abs(asteroids[i])) {
+                    while (!st.isEmpty() && st.peek() > 0 && st.peek() < Math.abs(asteroids[i])) {
                         st.pop();
                     }
-                    if (st.size() == 0 || st.peek() < 0) {
+                    if (st.isEmpty() || st.peek() < 0) {
                         st.push(asteroids[i]);
                     } else if (st.peek() == Math.abs(asteroids[i])) {
                         st.pop();
