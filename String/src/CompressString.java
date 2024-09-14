@@ -1,4 +1,4 @@
-public class CompressString {
+public class  CompressString {
     public static void main(String[] args) {
         String str="aaaabbbccdde";
         String ans=""+str.charAt(0);

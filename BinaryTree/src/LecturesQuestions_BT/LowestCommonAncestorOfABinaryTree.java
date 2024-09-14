@@ -17,7 +17,7 @@ public class LowestCommonAncestorOfABinaryTree {
 
     public Node CommonAncestor(Node root, Node p, Node q) {
         if (root == null) return null;
-        if (root == p || root == p) return root;
+        if (root == p || root == q) return root;
 
         Node left = CommonAncestor(root.left, p, q);
         Node right = CommonAncestor(root.right, p, q);

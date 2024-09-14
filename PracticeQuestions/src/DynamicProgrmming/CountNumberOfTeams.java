@@ -5,7 +5,7 @@ public class CountNumberOfTeams {
 
     }
 
-    public int numTeams(int[] rating) {
-
-    }
+//    public int numTeams(int[] rating) {
+//
+//    }
 }

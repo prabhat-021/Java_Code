@@ -3,7 +3,7 @@ package Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class NumberOFSubArraysWithXORk {
+public class  NumberOFSubArraysWithXORk {
     public static void main(String[] args) {
         int[] a = {4, 2, 2, 6, 4};
         int k = 6;

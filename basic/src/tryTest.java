@@ -1,9 +1,10 @@
+import java.io.LineNumberInputStream;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class tryTest {
     public static void main(String[] args) {
-//        int[] gain = {105, 924, 32, 968};
+        int[] gain = {1, 2, 3};
 //        int[] player2 = {4, 1};
 //        int a = isWinner(player1, player2);
 //        System.out.println(a);
@@ -18,13 +19,21 @@ public class tryTest {
 //        System.out.println(checkPowersOfThree(91));
 //        System.out.println(checkPowersOfThree(12));
 
-        int[] arr = {5, 6, 8, 7, 4, 0, 3, 1, 9, 2};
-        int[] arr2 = {7686, 97012948, 84234023, 2212638, 99};
-        int[] t = sortJumbled(arr, arr2);
-        for (int i = 0; i < t.length; i++) {
-            System.out.println(t[i]);
-        }
+//        int[] arr = {5, 6, 8, 7, 4, 0, 3, 1, 9, 2};
+//        int[] arr2 = {7686, 97012948, 84234023, 2212638, 99};
+//        int[] t = sortJumbled(arr, arr2);
+//        for (int i = 0; i < t.length; i++) {
+//            System.out.println(t[i]);
+//
+//        List<List<Integer>> ans = new ArrayList<>();
+//        permutate(gain, 0, new ArrayList<>(), ans);
+//        printListOfLists(ans);
+    }
 
+    public static void printListOfLists(List<List<Integer>> ans) {
+        for (List<Integer> list : ans) {
+            System.out.println(list);
+        }
     }
 
     public static int[] twoSum(int[] nums, int target) {
@@ -554,4 +563,67 @@ public class tryTest {
         return nums;
     }
 
+//    public static void permutate(int[] array, int n, List<Integer> ll, List<List<Integer>> ans) {
+//        if (n == array.length -1) {
+//            ll.add(array[n]);
+//            ans.add(ll);
+//            return;
+//        }
+//
+//        ll.add(array[n]);
+//        for (int i = n; i < array.length; i++) {
+//            swapArray(array, n, i);
+//            permutate(array, n + 1, ll, ans);
+//            swapArray(array, n, i);
+//        }
+//    }
+
+    public int maxDepth(String s) {
+//        Stack<Character> st=new Stack<>();
+        int ans = 0;
+        int count = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (ch == '(') {
+                count++;
+            } else if (ch == ')') count--;
+
+            ans = Math.max(count, ans);
+        }
+
+        return ans;
+    }
+
+    public int romanToInt(String s) {
+        int ans = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (ch == 'I') {
+                if (i + 1 < s.length() && (s.charAt(i + 1) == 'V' || s.charAt(i + 1) == 'X')) {
+                    ans -= 1;
+                } else {
+                    ans += 1;
+                }
+            } else if (ch == 'V') ans += 5;
+            else if (ch == 'X') {
+                if (i + 1 < s.length() && (s.charAt(i + 1) == 'L' || s.charAt(i + 1) == 'C')) {
+                    ans -= 10; // Subtract for XL (40) and XC (90)
+                } else {
+                    ans += 10;
+                }
+            } else if (ch == 'L') ans += 50;
+            else if (ch == 'C') {
+                if (i + 1 < s.length() && (s.charAt(i + 1) == 'D' || s.charAt(i + 1) == 'M')) {
+                    ans -= 100;
+                } else {
+                    ans += 100;
+                }
+            } else if (ch == 'D') ans += 500;
+            else if (ch == 'M') ans += 1000;
+        }
+
+        return ans;
+    }
 }

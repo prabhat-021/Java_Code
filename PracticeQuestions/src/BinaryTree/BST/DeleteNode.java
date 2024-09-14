@@ -1,17 +1,17 @@
 package BinaryTree.BST;
 
-import BinaryTree.Medium.MaximumPathSum;
+import BinaryTree.TreeNode;
 
 public class DeleteNode {
     public static void main(String[] args) {
 
     }
 
-    public MaximumPathSum.TreeNode deleteNode(MaximumPathSum.TreeNode root, int key) {
+    public TreeNode deleteNode(TreeNode root, int key) {
         return delete(root, key);
     }
 
-    public MaximumPathSum.TreeNode delete(MaximumPathSum.TreeNode root, int key) {
+    public TreeNode delete(TreeNode root, int key) {
         if (root == null) return null;
 
         if (root.val < key) {
@@ -34,7 +34,7 @@ public class DeleteNode {
         return root;
     }
 
-    public int max(MaximumPathSum.TreeNode node) {
+    public int max(TreeNode node) {
         if (node == null) return Integer.MIN_VALUE;
 
         int right = max(node.right);

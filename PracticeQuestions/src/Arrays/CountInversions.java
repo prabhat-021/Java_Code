@@ -5,9 +5,9 @@ public class CountInversions {
 
     }
 
-        public static int numberOfInversions(int[] a, int n) {
-            return mergeSort(a,0,n-1);
-        }
+    public static int numberOfInversions(int[] a, int n) {
+        return mergeSort(a, 0, n - 1);
+    }
 
     static int merge(int[] arr, int l, int mid, int r) {
         int n1 = mid - l + 1;
@@ -21,7 +21,7 @@ public class CountInversions {
         j = 0;
         k = l;
         int cnt = 0;
-        int mid2=left.length-1;
+        int mid2 = left.length - 1;
         while (i < n1 && j < n2) {
             if (left[i] <= right[j]) {
                 arr[k++] = left[i++];
@@ -40,7 +40,7 @@ public class CountInversions {
     }
 
     static int mergeSort(int[] arr, int l, int r) {
-        int cnt=0;
+        int cnt = 0;
         if (l >= r) return cnt;
         int mid = (l + r) / 2;
         cnt += mergeSort(arr, l, mid);
