@@ -19,7 +19,7 @@ public class SumSubarrayMinimums {
             int left = i - pse[i];
             int right = nse[i] - i;
 
-            total = (total + ((long) (right * left) % mod * arr[i]) % mod) % mod;
+            total = (total + (((long) right * left) % mod * arr[i]) % mod) % mod;
 
         }
         return (int) total;

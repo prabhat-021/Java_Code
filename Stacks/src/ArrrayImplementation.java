@@ -59,6 +59,7 @@ public class ArrrayImplementation {
         st.display();
         st.push(6);
         st.display();
+        System.out.println(st.peek());
         System.out.println(st.size());
         st.pop();
         st.display();

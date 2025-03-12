@@ -5,7 +5,7 @@ public class CelebrityProblem {
 
     }
 
-    int celebrity(int m[][], int n) {
+    public int celebrity(int m[][], int n) {
         Stack<Integer> st = new Stack<>();
         for (int i = 0; i < n; i++) {
             st.push(i);
@@ -17,7 +17,7 @@ public class CelebrityProblem {
             if (m[v1][v2] == 0) st.push(v1);
             else if (m[v2][v1] == 0) st.push(v2);
         }
-        if (st.size() == 0) return -1;
+        if (st.isEmpty()) return -1;
 
         int potential = st.pop();
         for (int i = 0; i < n; i++) {

@@ -20,9 +20,9 @@ public class TrapRainWater {
 
         for (int i = 0; i < n; i++) {
             int leftMax = prefixSum[i], rightMax = sufixSum[i];
-            if (height[i] < leftMax && height[i] < rightMax) {
+//            if (height[i] < leftMax && height[i] < rightMax) {
                 ans += Math.min(leftMax, rightMax) - height[i];
-            }
+//            }
         }
         return ans;
     }

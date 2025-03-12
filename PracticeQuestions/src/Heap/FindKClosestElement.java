@@ -45,6 +45,7 @@ public class FindKClosestElement {
                 }
             }
         }
+
         while (!pq.isEmpty()) {
             ans.add(pq.remove().val);
         }
