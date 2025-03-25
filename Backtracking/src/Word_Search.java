@@ -1,7 +1,7 @@
 public class Word_Search {
     public static void main(String[] args) {
         char[][] maze = {{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
-        String word = "ABCCED ";
+        String word = "ABSF ";
         for (int i = 0; i < maze.length; i++) {
             for (int j = 0; j < maze[0].length; j++) {
                 if (word.charAt(0) == maze[i][j]) {
