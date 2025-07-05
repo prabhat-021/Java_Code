@@ -1,4 +1,4 @@
-public class cycleInLinkedList {
+public class  cycleInLinkedList {
     public static void main(String[] args) {
 
     }

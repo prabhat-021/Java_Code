@@ -19,12 +19,11 @@ public class BalancedBrackets {
             if (ch == '(') {
                 st.push(ch);
             } else {
-                if (st.size() == 0) return false;
+                if (st.isEmpty()) return false;
                 if (st.peek() == '(') st.pop();
             }
         }
-        if (st.size() > 0) return false;
-        return true;
+        return st.isEmpty();
     }
 
 //    public static boolean validParentheses(String str){

@@ -27,10 +27,10 @@ public class NextGreaterElement2 {
             }
             if (i < nums.length) st.push(k);
         }
-        while (st.size() > 0) {
+
+        while (!st.isEmpty()) {
             ans[st.pop()] = -1;
         }
-
 
 //        for (int i = 0; i < nums.length; i++) {
 //            if (mp.getOrDefault(nums[i], -1) == -1 && (mp.get(nums[i])!=null && mp.get(nums[i])!=-1)) {

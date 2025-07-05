@@ -5,7 +5,7 @@ public class ArrrayImplementation {
         private int idx = 0;
 
         void push(int val) {
-            if(isFull()){
+            if (isFull()) {
                 System.out.println("Stack is Full");
                 return;
             }
@@ -18,15 +18,14 @@ public class ArrrayImplementation {
             return -1;
         }
 
-        int pop() {
+        void pop() {
             if (idx > 0) {
                 int top = arr[idx - 1];
                 arr[idx - 1] = 0;
                 idx--;
-                return top;
+                return;
             }
             System.out.println("Stack is Empty");
-            return -1;
         }
 
         void display() {
@@ -40,19 +39,17 @@ public class ArrrayImplementation {
             return idx;
         }
 
-        boolean isEmpty(){
-            if(idx==0) return true;
-            return false;
+        boolean isEmpty() {
+            return idx == 0;
         }
 
-        boolean isFull(){
-            if(idx== arr.length) return true;
-            return false;
+        boolean isFull() {
+            return idx == arr.length;
         }
     }
 
     public static void main(String[] args) {
-        Stack st=new Stack();
+        Stack st = new Stack();
         st.push(9);
         st.display();
         st.push(7);
