@@ -7,23 +7,24 @@ public class LongestRepeatingCharacter {
 
     }
 // leetcode 2024 same answer ; but prefer doing by array more easyer;
+
     public int characterReplacement(String s, int k) {
         HashMap<Character, Integer> mp = new HashMap<>();
         int ans = 0, left = 0, maxRepeat = 0;
 
-        for (int i = 0; i < s.length(); i++) {
-            char ch = s.charAt(i);
+        for (int right = 0; right < s.length(); right++) {
+            char ch = s.charAt(right);
             mp.put(ch, mp.getOrDefault(ch, 0) + 1);
 
             maxRepeat = Math.max(maxRepeat, mp.get(ch));
 
-            if (i - left + 1 - maxRepeat > k) {
+            if (right - left + 1 - maxRepeat > k) {
                 char rem = s.charAt(left);
                 mp.put(rem, mp.get(rem) - 1);
                 left++;
             }
 
-            ans = Math.max(ans, i - left + 1);
+            ans = Math.max(ans, right - left + 1);
         }
         return ans;
     }

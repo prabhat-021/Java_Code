@@ -19,6 +19,7 @@ public class CountSubsetsWithSumK {
         for (int i = 0; i < n; i++) {
             dp[i][0] = 1;
         }
+        
         if (nums[0] <= tar) dp[0][nums[0]] = 1;
 
         for (int idx = 1; idx < n; idx++) {

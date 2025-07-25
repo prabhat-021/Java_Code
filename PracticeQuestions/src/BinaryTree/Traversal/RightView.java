@@ -1,7 +1,5 @@
 package BinaryTree.Traversal;
 
-import BinaryTree.Medium.MaximumPathSum;
-
 import java.util.*;
 
 public class RightView {
@@ -9,17 +7,23 @@ public class RightView {
 
     }
 
+    public static class Node {
+        int val;
+        Node left;
+        Node right;
+    }
+
     public class Pair {
-        MaximumPathSum.TreeNode node;
+        Node node;
         int level;
 
-        public Pair(MaximumPathSum.TreeNode node, int level) {
+        public Pair(Node node, int level) {
             this.node = node;
             this.level = level;
         }
     }
 
-    public List<Integer> rightSideView(MaximumPathSum.TreeNode root) {
+    public List<Integer> rightSideView(Node root) {
         List<Integer> ans = new ArrayList<>();
         TreeMap<Integer, Integer> mp = new TreeMap<>();
         if (root == null) return ans;
@@ -28,7 +32,7 @@ public class RightView {
         qp.add(new Pair(root, 0));
         while (!qp.isEmpty()) {
             Pair it = qp.poll();
-            MaximumPathSum.TreeNode node = it.node;
+            Node node = it.node;
             int level = it.level;
 
             if (!mp.containsKey(level)) mp.put(level, node.val);
@@ -44,7 +48,7 @@ public class RightView {
         return ans;
     }
 
-    private void recursionRight(MaximumPathSum.TreeNode root, int level, List<Integer> res) {
+    private void recursionRight(Node root, int level, List<Integer> res) {
         // Check if the current node is null
         if (root == null) {
             return;
@@ -57,13 +61,14 @@ public class RightView {
             // current node to the result list
             res.add(root.val);
 
-            // Recursively call the function for the
-            // right child with an increased level
-            recursionRight(root.right, level + 1, res);
-
-            // Recursively call the function for the
-            // left child with an increased level
-            recursionRight(root.left, level + 1, res);
         }
+
+        // Recursively call the function for the
+        // right child with an increased level
+        recursionRight(root.right, level + 1, res);
+
+        // Recursively call the function for the
+        // left child with an increased level
+        recursionRight(root.left, level + 1, res);
     }
 }

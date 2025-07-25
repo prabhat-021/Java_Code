@@ -1,7 +1,5 @@
 package BinaryTree.Traversal;
 
-import BinaryTree.Medium.MaximumPathSum;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -12,12 +10,19 @@ public class ZigzagLevelOrderTraversal {
 
     }
 
-    public List<List<Integer>> zigzagLevelOrder(MaximumPathSum.TreeNode root) {
+
+    public static class Node {
+        int val;
+        Node left;
+        Node right;
+    }
+
+    public List<List<Integer>> zigzagLevelOrder(Node root) {
         List<List<Integer>> ans = new ArrayList<>();
 
         if (root == null) return ans;
 
-        Queue<MaximumPathSum.TreeNode> qp = new LinkedList<>();
+        Queue<Node> qp = new LinkedList<>();
         qp.add(root);
         boolean LtoR = true;
 
@@ -26,7 +31,7 @@ public class ZigzagLevelOrderTraversal {
             List<Integer> ll = new ArrayList<>(size);
 
             for (int i = 0; i < size; i++) {
-                MaximumPathSum.TreeNode node = qp.poll();
+                Node node = qp.poll();
 
                 if (LtoR) {
                     ll.add(node.val);

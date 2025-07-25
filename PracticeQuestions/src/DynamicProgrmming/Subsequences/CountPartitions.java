@@ -10,7 +10,7 @@ public class CountPartitions {
     public int countPartition(int d, int[] arr) {
         int ttSum = 0;
         int n = arr.length;
-        for (int i = 0; i < n; i++) ttSum += arr[i];
+        for (int j : arr) ttSum += j;
 
         if (ttSum - d < 0 || ttSum % 2 == 1) return 0;
 

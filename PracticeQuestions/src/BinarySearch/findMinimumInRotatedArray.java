@@ -6,10 +6,11 @@ public class findMinimumInRotatedArray {
     }
 
     public int findMin2(int[] arr) {
-        int start = 0;
-        int end = arr.length - 1;
+
+        int start = 0, n = arr.length;
+        int end = n - 1;
         int ans = Integer.MAX_VALUE;
-        if (arr[0] < arr[arr.length - 1]) {
+        if (arr[0] < arr[n - 1]) {
             return arr[0];
         }
         while (start <= end) {

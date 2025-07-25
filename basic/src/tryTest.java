@@ -1,6 +1,4 @@
-import java.io.LineNumberInputStream;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class tryTest {
     public static void main(String[] args) {
@@ -631,6 +629,89 @@ public class tryTest {
         List<Integer> ans = new ArrayList<>();
         for (int i = 1; i < height.length; i++) {
             if (height[i - 1] > threshold) ans.add(height[i]);
+        }
+        return ans;
+    }
+
+    public int countOperations(int num1, int num2) {
+        int ans = 0;
+        while (num1 > 0 && num2 > 0) {
+            if (num1 > num2) num1 = num1 - num2;
+            else num2 = num2 - num1;
+            ans++;
+        }
+        return ans;
+    }
+
+    public static int maximumProfit(ArrayList<Integer> prices) {
+        int min = prices.get(0);
+        int profit = Integer.MIN_VALUE;
+
+        for (int i = 1; i < prices.size(); i++) {
+            int cost = prices.get(i) - min;
+
+            profit = Math.max(profit, cost);
+
+            min = Math.min(min, prices.get(i));
+        }
+
+        return profit;
+    }
+
+    public static List<String> generateBinaryNumbers(int n) {
+        Queue<String> qp = new LinkedList<>();
+        ArrayList<String> ans = new ArrayList<>();
+        qp.add("1");
+        for (int i = 1; i <= n; i++) {
+            String st = qp.peek();
+            ans.add(st);
+            qp.poll();
+            qp.add(st + "0");
+            qp.add(st + "1");
+        }
+
+        return ans;
+    }
+
+    public static int lengthOfLongestSubarray(int[] arr) {
+        int maxi = 0, sum = 0;
+        HashMap<Integer, Integer> mp = new HashMap<>();
+        mp.put(0, -1);
+
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+
+            if (mp.containsKey(sum)) {
+                maxi = Math.max(maxi, i - mp.get(sum));
+            } else mp.put(sum, i);
+        }
+
+        return maxi;
+    }
+
+    public int[] asteroidCollision(int[] asteroids) {
+        Stack<Integer> st = new Stack<>();
+        st.push(asteroids[0]);
+        for (int i = 1; i < asteroids.length; i++) {
+            if (!st.isEmpty() && st.peek() < 0) {
+                st.push(asteroids[i]);
+            } else {
+                if (asteroids[i] > 0) {
+                    st.push(asteroids[i]);
+                } else {
+                    while (!st.isEmpty() && st.peek() > 0 && Math.abs(asteroids[i]) > st.peek()) st.pop();
+                    if (st.isEmpty() || st.peek() < 0) {
+                        st.push(asteroids[i]);
+                    } else if (st.peek() == Math.abs(asteroids[i])) {
+                        st.pop();
+                    }
+                }
+            }
+        }
+
+        int[] ans = new int[st.size()];
+        for (int i = ans.length - 1; i >= 0; i--) {
+            ans[i] = st.pop();
         }
         return ans;
     }

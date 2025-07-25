@@ -1,8 +1,5 @@
 package BinaryTree.Traversal;
 
-import BinaryTree.Medium.MaximumPathSum;
-
-import javax.swing.event.ListDataListener;
 import java.util.*;
 
 public class VerticalOrderTraversal {
@@ -10,26 +7,32 @@ public class VerticalOrderTraversal {
 
     }
 
+    public static class Node {
+        int val;
+        Node left;
+        Node right;
+    }
+
     public static class Tuple {
-        MaximumPathSum.TreeNode node;
+        Node node;
         int x;
         int y;
 
-        public Tuple(MaximumPathSum.TreeNode node, int x, int y) {
+        public Tuple(Node node, int x, int y) {
             this.node = node;
             this.x = x;
             this.y = y;
         }
     }
 
-    public List<List<Integer>> verticalTraversal(MaximumPathSum.TreeNode root) {
+    public List<List<Integer>> verticalTraversal(Node root) {
         TreeMap<Integer, TreeMap<Integer, PriorityQueue<Integer>>> mp = new TreeMap<>();
         Queue<Tuple> qp = new LinkedList<>();
         qp.offer(new Tuple(root, 0, 0));
 
         while (!qp.isEmpty()) {
             Tuple tuple = qp.poll();
-            MaximumPathSum.TreeNode node = tuple.node;
+            Node node = tuple.node;
             int x = tuple.x;
             int y = tuple.y;
 

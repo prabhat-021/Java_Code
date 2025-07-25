@@ -24,15 +24,15 @@ public class MinimumFallingPath {
                 if (j - 1 >= 0) left = matrix[i][j] + dp[i - 1][j - 1];
                 if (j + 1 < n) right = matrix[i][j] + dp[i - 1][j + 1];
 
-                dp[i][j]=Math.min(left,Math.min(right,up));
+                dp[i][j] = Math.min(left, Math.min(right, up));
             }
         }
 
-        int maxi = Integer.MAX_VALUE;
+        int min = Integer.MAX_VALUE;
         for (int j = 0; j < m; j++) {
-            maxi = Math.min(maxi, dp[n - 1][j]);
+            min = Math.min(min, dp[n - 1][j]);
         }
 
-        return maxi;
+        return min;
     }
 }

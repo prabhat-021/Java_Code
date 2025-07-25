@@ -13,9 +13,9 @@ public class MaxConsecutiveOnes3 {
 
             while (cntZeroes > k) {
                 if (nums[i] == 0) cntZeroes--;
-                i++;
+                j++;
             }
-            ans = Math.max(ans, j - i + 1);
+            ans = Math.max(ans, i-j + 1);
         }
         return ans;
     }

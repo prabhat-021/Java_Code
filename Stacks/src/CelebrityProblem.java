@@ -5,7 +5,7 @@ public class CelebrityProblem {
 
     }
 
-    public int celebrity(int m[][], int n) {
+    public int celebrity(int[][] m, int n) {
         Stack<Integer> st = new Stack<>();
         for (int i = 0; i < n; i++) {
             st.push(i);

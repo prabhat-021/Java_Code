@@ -17,7 +17,7 @@ public class TwoSum {
             if (mp.containsKey(partner)) {
                 return new int[]{i, mp.get(partner)};
             } else {
-                mp.put(partner, i);
+                mp.put(nums[i], i);
             }
         }
         return ans;

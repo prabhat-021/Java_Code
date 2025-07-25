@@ -165,7 +165,7 @@ public class Graph {
         HashSet<Integer> visited = new HashSet<>();
         Stack<Integer> st = new Stack<>();
         for (int src : map.keySet()) {
-            if(visited.contains(src))continue;
+            if (visited.contains(src)) continue;
             st.push(src);
             while (!st.isEmpty()) {
 //            1. Remove

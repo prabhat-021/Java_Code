@@ -15,4 +15,16 @@ public class FrogJump {
 
         return dp[idx] = Math.min(left, right);
     }
+
+    public static int frogjump_space(int[] arr, int[] dp) {
+        dp[0] = 0;
+        for (int idx = 1; idx < arr.length; idx++) {
+            int left = dp[idx - 1] + Math.abs(arr[idx] - arr[idx - 1]);
+            int right = Integer.MAX_VALUE;
+            if (idx > 1) right = dp[idx - 2] + Math.abs(arr[idx] - arr[idx - 2]);
+
+            dp[idx] = Math.min(left, right);
+        }
+        return dp[arr.length - 1];
+    }
 }

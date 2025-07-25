@@ -15,8 +15,8 @@ public class CountSort {
         int max = findMax(arr); //find the largest element of the array
         int[] count = new int[max + 1];
 
-        for (int i = 0; i < arr.length; i++) {
-            count[arr[i]]++;
+        for (int value : arr) {
+            count[value]++;
         }
 
         int k = 0;
@@ -62,8 +62,8 @@ public class CountSort {
     }
 
     static void printArray(int[] arr) {
-        for (int j = 0; j < arr.length; j++) {
-            System.out.print(arr[j] + " ");
+        for (int i : arr) {
+            System.out.print(i + " ");
         }
     }
 }

@@ -10,15 +10,15 @@ public class PartitionEqualSubsetSum {
     public boolean canPartition(int[] nums) {
         int sum = 0;
         int n = nums.length;
-        for (int i = 0; i < n; i++) {
-            sum += nums[i];
+        for (int num : nums) {
+            sum += num;
         }
 
         if (sum % 2 != 0) return false;
         sum /= 2;
 
-        int dp[][] = new int[n][sum + 1];
-        for (int row[] : dp)
+        int[][] dp = new int[n][sum + 1];
+        for (int[] row : dp)
             Arrays.fill(row, -1);
 
         return fn(n - 1, sum, nums, dp);

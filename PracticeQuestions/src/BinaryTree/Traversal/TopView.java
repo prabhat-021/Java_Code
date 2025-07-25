@@ -1,7 +1,5 @@
 package BinaryTree.Traversal;
 
-import BinaryTree.Medium.MaximumPathSum;
-
 import java.util.*;
 
 public class TopView {
@@ -9,17 +7,24 @@ public class TopView {
 
     }
 
+
+    public static class Node {
+        int val;
+        Node left;
+        Node right;
+    }
+
     public class Pair {
-        MaximumPathSum.TreeNode node;
+        Node node;
         int ht;
 
-        public Pair(MaximumPathSum.TreeNode node, int ht) {
+        public Pair(Node node, int ht) {
             this.node = node;
             this.ht = ht;
         }
     }
 
-    public List<Integer> topView(MaximumPathSum.TreeNode root) {
+    public List<Integer> topView(Node root) {
         List<Integer> ans = new ArrayList<>();
         if (root == null) return ans;
         HashMap<Integer, Integer> mp = new HashMap<>();
@@ -30,7 +35,7 @@ public class TopView {
         while (!qp.isEmpty()) {
             Pair it = qp.poll();
             int ht = it.ht;
-            MaximumPathSum.TreeNode temp = it.node;
+            Node temp = it.node;
 
             if (!mp.containsKey(ht)) mp.put(ht, temp.val);
 

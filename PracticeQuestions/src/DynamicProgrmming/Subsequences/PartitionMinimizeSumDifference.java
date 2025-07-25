@@ -10,7 +10,7 @@ public class PartitionMinimizeSumDifference {
     public int minimumDifference(int[] arr) {
         int target = 0, n = arr.length;
 
-        for (int i = 0; i < n; i++) target += arr[i];
+        for (int j : arr) target += j;
         boolean[][] dp = new boolean[n][target + 1];
         for (int i = 0; i < n; i++) dp[i][0] = true;
 

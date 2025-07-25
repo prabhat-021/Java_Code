@@ -13,7 +13,7 @@ public class RemoveKDigits {
         Stack<Integer> st = new Stack<>();
 
         for (int i = 0; i < n; i++) {
-            while (!st.isEmpty() && k > 0 && (st.peek()) > (num.charAt(i)-'0')) {
+            while (!st.isEmpty() && k > 0 && (st.peek()) > (num.charAt(i) - '0')) {
                 st.pop();
                 k--;
             }

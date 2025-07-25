@@ -8,13 +8,11 @@ public class PrintingLongestIncreasingSubsequence {
 
     }
 
-    public int PLIS(int[] arr) {
+    public void PLIS(int[] arr) {
         int n = arr.length;
         int[] dp = new int[n];
         int[] hash = new int[n];
         Arrays.fill(hash, 1);
-
-        int maxi = 1;
 
         for (int i = 0; i < n; i++) {
             hash[i] = i;
@@ -51,6 +49,5 @@ public class PrintingLongestIncreasingSubsequence {
         }
         System.out.println();
 
-        return maxi;
     }
 }

@@ -20,6 +20,6 @@ public class CoinChange {
                 dp[c][am] = inc + exc;
             }
         }
-        return dp[dp.length-1][dp[0].length-1];
+        return dp[dp.length - 1][dp[0].length - 1];
     }
 }

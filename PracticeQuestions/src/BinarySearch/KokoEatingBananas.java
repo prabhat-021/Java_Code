@@ -23,15 +23,14 @@ public class KokoEatingBananas {
 
     static int getHour(int[] arr, int hour) {
         int ans = 0;
-        for (int i = 0; i < arr.length; i++) {
-            ans += Math.ceil((double) arr[i] / (double) hour);
+        for (int j : arr) {
+            ans += (int) Math.ceil((double) j / (double) hour);
         }
         return ans;
     }
 
     public static int findMax(int[] v) {
         int maxi = Integer.MIN_VALUE;
-        ;
         int n = v.length;
 
         for (int i = 0; i < n; i++) {

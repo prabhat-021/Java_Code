@@ -41,9 +41,9 @@ public class NinjaTraining {
 
 
         for (int day = 1; day < points.size(); day++) {
-            for (int last = 0; last < 3; last++) {
+            for (int last = 0; last < 4; last++) {
+                dp[day][last] = 0;
                 for (int task = 0; task < 3; task++) {
-                    dp[day][last] = 0;
                     if (task != last) {
                         int point = points.get(day).get(task) + dp[day - 1][task];
                         dp[day][last] = Math.max(dp[day][last], point);

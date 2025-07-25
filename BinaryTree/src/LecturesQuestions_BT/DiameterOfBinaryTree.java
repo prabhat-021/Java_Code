@@ -15,11 +15,12 @@ public class DiameterOfBinaryTree {
 //    T(N)=T(N/2)+T(N/2);
 //    T(N)=4T(N/2)+1
 //    O(N^2) WILL BE THE ANSWER AFTER SOLVING;
-    public int diameterOftree(Node root) {
+
+    public int diameterOfTree(Node root) {
         if (root == null) return 0;
 
-        int leftDiameter = diameterOftree(root.left);
-        int rightDiameter = diameterOftree(root.right);
+        int leftDiameter = diameterOfTree(root.left);
+        int rightDiameter = diameterOfTree(root.right);
         int sd = hit(root.right) + hit(root.left);
 
         return Math.max(leftDiameter, Math.max(rightDiameter, sd));

@@ -33,11 +33,11 @@ public class FindAllAnagram {
                 ans.add(i - p.length() + 1);
             }
             if (i >= p.length() - 1) {
-                char ele = s.charAt(i - p.length() + 1);
-                duplicate.put(ele, duplicate.get(ele) - 1);
+                char key = s.charAt(i - p.length() + 1);
+                duplicate.put(key, duplicate.get(key) - 1);
 
-                if (duplicate.get(s.charAt(i - p.length() + 1)) == 0)
-                    duplicate.remove(s.charAt(i - p.length() + 1));
+                if (duplicate.get(key) == 0)
+                    duplicate.remove(key);
             }
         }
 

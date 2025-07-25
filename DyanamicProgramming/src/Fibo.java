@@ -1,6 +1,6 @@
 public class Fibo {
     public static void main(String[] args) {
-        int n = 1230;
+        int n = 60;
         long[] dp = new long[n + 1];
         System.out.println(fibTB(n, dp));
         System.out.println();
