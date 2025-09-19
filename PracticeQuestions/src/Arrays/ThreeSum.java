@@ -4,7 +4,7 @@ import java.util.*;
 
 public class ThreeSum {
     public static void main(String[] args) {
-        int[] arr = {-2,0,1,1,2};
+        int[] arr = {-2, 0, 1, 1, 2};
         int n = arr.length;
 //        List<List<Integer>> ans = bruteForce(n, arr);
         List<List<Integer>> ans = optimal(n, arr);

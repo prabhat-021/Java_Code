@@ -41,12 +41,6 @@ public class ReverseLinkedList2 {
             pre=curr;
             curr=after;
         }
-//        while(curr.data!=right){
-//            after=curr.next;
-//            curr.next=pre;
-//            pre=curr;
-//            curr=after;
-//        }
         return pre;
     }
 }

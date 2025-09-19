@@ -39,7 +39,6 @@ public class NumberOfIsland {
                 }
             }
         }
-
         return count;
     }
 
@@ -65,5 +64,4 @@ public class NumberOfIsland {
             }
         }
     }
-
 }

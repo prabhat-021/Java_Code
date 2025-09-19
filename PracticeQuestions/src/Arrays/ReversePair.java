@@ -2,7 +2,6 @@ package Arrays;
 
 public class ReversePair {
     public static void main(String[] args) {
-
     }
 
     static void merge(int[] arr, int l, int mid, int r) {

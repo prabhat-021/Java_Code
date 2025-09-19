@@ -57,7 +57,6 @@ public class Matrix01 {
                 }
             }
         }
-
         return distance;
     }
 }

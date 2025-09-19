@@ -22,7 +22,6 @@ public class FloodFill {
     public int[][] floodFill(int[][] grid, int sr, int sc, int color) {
         int m = grid.length;
         int n = grid[0].length;
-
         int[][] visited = new int[m][n];
         int old = grid[sr][sc];
         grid[sr][sc] = visited[sr][sc] = color;
@@ -48,7 +47,6 @@ public class FloodFill {
                 }
             }
         }
-
         return grid;
     }
 }

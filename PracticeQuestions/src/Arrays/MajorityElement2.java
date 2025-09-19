@@ -1,6 +1,7 @@
 package Arrays;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -19,11 +20,11 @@ public class MajorityElement2 {
     public static List<Integer> majorityElement(int[] nums) {
         HashMap<Integer, Integer> mp = new HashMap<>();
         ArrayList<Integer> ll = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++) {
-            if (mp.containsKey(nums[i])) {
-                mp.put(nums[i], mp.get(nums[i]) + 1);
+        for (int num : nums) {
+            if (mp.containsKey(num)) {
+                mp.put(num, mp.get(num) + 1);
             } else {
-                mp.put(nums[i], 1);
+                mp.put(num, 1);
             }
         }
         for (HashMap.Entry<Integer, Integer> entry : mp.entrySet()) {

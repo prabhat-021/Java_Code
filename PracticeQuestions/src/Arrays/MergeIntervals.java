@@ -43,4 +43,28 @@ public class MergeIntervals {
 //        return ans.stream().map(list -> list.stream().mapToInt(Integer::intValue).toArray()).toArray(int[][]::new);
 
     }
+
+    private int[][] mergeNew(int[][] intervals) {
+        int n = intervals.length;
+
+        Arrays.sort(intervals, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1[0] - o2[0];
+            }
+        });
+
+        List<List<Integer>> ans=new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+
+            if(ans.isEmpty() || intervals[i][0]>ans.get(ans.size()-1).get(0)){
+                ans.add(Arrays.asList(intervals[i][0],intervals[i][0]));
+            }else {
+                ans.get(ans.size() - 1).set(1, Math.max(ans.get(ans.size() - 1).get(1), intervals[i][1]));
+            }
+        }
+
+        return new int[][]{};
+    }
 }

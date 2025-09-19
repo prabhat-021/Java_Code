@@ -1,6 +1,5 @@
 package Hashset;
 
-//import java.util.HashMap;
 import java.util.HashSet;
 
 public class LongestConsecutiveSequence {

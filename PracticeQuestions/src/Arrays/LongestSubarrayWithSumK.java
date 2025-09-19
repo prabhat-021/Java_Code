@@ -54,7 +54,6 @@ public class LongestSubarrayWithSumK {
                 maxLen = Math.max(maxLen, i - j + 1);
             }
         }
-
         return maxLen;
     }
 }
