@@ -25,7 +25,6 @@ public class CelebrityProblem {
             if (m[i][potential] == 0) return -1;
         }
         for (int i = 0; i < n; i++) {
-//            if(i==potential) continue;
             if (m[potential][i] == 1) return -1;
         }
         return potential;

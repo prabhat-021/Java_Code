@@ -8,7 +8,7 @@ public class SurroundedRegions {
 
     }
 
-    public class Pair {
+    public static class Pair {
         int row;
         int col;
 

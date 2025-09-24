@@ -2,13 +2,14 @@ package BinarySearch;
 
 public class NthRootOfAnInteger {
     public static void main(String[] args) {
-        int n = 9, m = 1953125;
+        int n = 3, m = 31;
         int ans = NthRoot(n, m);
         System.out.println("The answer is: " + ans);
     }
 
     public static int NthRoot(int n, int m) {
-        int low = 0, high = (int) m / (n * n);
+        if (n > m) return -1;
+        int low = 0, high = m / (n * n);
         while (low <= high) {
             int mid = (low + high) / 2;
             long ans = multi(mid, n, m);

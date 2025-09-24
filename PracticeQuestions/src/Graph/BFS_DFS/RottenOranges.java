@@ -33,8 +33,7 @@ public class RottenOranges {
                 if (grid[i][j] == 2) {
                     qp.add(new Pair(i, j, 0));
                     visited[i][j] = 2;
-                } else visited[i][j] = 0;
-
+                }
                 if (grid[i][j] == 1) countFresh++;
             }
         }

@@ -14,7 +14,6 @@ public class JumpGame {
                 winner = i;
             }
         }
-
         return winner == 0;
     }
 //  BRUTE FORCE

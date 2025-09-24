@@ -17,7 +17,7 @@ public class ImplemetQueueWithStacks {
                 st2.push(st1.pop());
             }
             int item= st1.pop();
-            while (st2.size()>0){
+            while (!st2.isEmpty()){
                 st1.push(st2.pop());
             }
             return item;
@@ -28,7 +28,7 @@ public class ImplemetQueueWithStacks {
                 st2.push(st1.pop());
             }
             int item= st1.peek();
-            while (st2.size()>0){
+            while (!st2.isEmpty()){
                 st1.push(st2.pop());
             }
             return item;

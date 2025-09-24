@@ -6,7 +6,7 @@ public class BottomView {
     public static void main(String[] args) {
 
     }
-    
+
     public static class Node {
         int val;
         Node left;
@@ -34,8 +34,8 @@ public class BottomView {
 
         while (!qp.isEmpty()) {
             Pair it = qp.poll();
-            int ht = it.ht;
             Node temp = it.node;
+            int ht = it.ht;
 
             mp.put(ht, temp.val); // Replace value corresponding to that vertical level
 

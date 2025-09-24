@@ -12,11 +12,9 @@ public class MinimumWindowSubstring {
         if (s.length() == 0 || t.length() == 0 || s.length() < t.length()) return "";
 
         HashMap<Character, Integer> mp = new HashMap<>();
-//        HashMap<Character, Integer> temp = new HashMap<>();
 
         for (int i = 0; i < t.length(); i++) {
-            if (mp.containsKey(t.charAt(i))) mp.put(t.charAt(i), mp.get(t.charAt(i))+1);
-            else mp.put(t.charAt(i), 1);
+            mp.put(t.charAt(i),mp.getOrDefault(t.charAt(i),0)+1);
         }
 
         int i = 0, j = 0;
@@ -33,7 +31,6 @@ public class MinimumWindowSubstring {
             }
             if (count > 0) {
                 j++;
-                continue;
             } else if (count == 0) {
                 temp = min;
 

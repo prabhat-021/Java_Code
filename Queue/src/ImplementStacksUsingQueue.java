@@ -18,7 +18,7 @@ public class ImplementStacksUsingQueue {
                 qp.add(qp.remove());
             }
             int x = qp.peek();
-            qp.add(x);
+            qp.add(qp.remove());
             return x;
         }
 

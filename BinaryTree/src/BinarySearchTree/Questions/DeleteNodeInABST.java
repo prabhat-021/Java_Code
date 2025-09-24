@@ -1,17 +1,25 @@
 package BinarySearchTree.Questions;
 
-import basic.BinaryTree1;
-
 public class DeleteNodeInABST {
     public static void main(String[] args) {
 
     }
 
-    public InsertIntoABinarySearchTree.Node deleteNode(InsertIntoABinarySearchTree.Node root, int key) {
+    public class Node {
+        int val;
+        Node left;
+        Node right;
+
+        public Node(int val) {
+            this.val = val;
+        }
+    }
+
+    public Node deleteNode(Node root, int key) {
         return delete(root, key);
     }
 
-    public InsertIntoABinarySearchTree.Node delete(InsertIntoABinarySearchTree.Node root, int key) {
+    public Node delete(Node root, int key) {
         if (root == null) return null;
 
         if (root.val < key) {
@@ -30,7 +38,7 @@ public class DeleteNodeInABST {
         return root;
     }
 
-    private int max(InsertIntoABinarySearchTree.Node node) {
+    private int max(Node node) {
         if (node == null) return Integer.MIN_VALUE;
         int left = max(node.left);
         int right = max(node.right);

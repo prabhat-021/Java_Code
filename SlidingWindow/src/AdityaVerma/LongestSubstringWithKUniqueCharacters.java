@@ -31,4 +31,29 @@ public class LongestSubstringWithKUniqueCharacters {
         }
         return ans;
     }
+
+    public int subarraysWithKDistinct(int[] s, int k) {
+        HashMap<Integer, Integer> mp = new HashMap<>();
+        int i = 0, j = 0, ans = 0;
+        while (j < s.length) {
+            int ch = s[j];
+            mp.put(ch, mp.getOrDefault(ch, 0) + 1);
+            int count = mp.size();
+            if (count == k) {
+                ans = Math.max(ans, j - i + 1);
+                j++;
+            } else if (count < k) {
+                j++;
+            } else {
+                while (mp.size() > k) {
+                    int rem = s[i];
+                    mp.put(rem, mp.get(rem) - 1);
+                    if (mp.get(rem) == 0) mp.remove(rem);
+                    i++;
+                }
+                j++;
+            }
+        }
+        return ans;
+    }
 }

@@ -1,9 +1,9 @@
 package Self_Balancing_Tree.SegmentTree;
 //
 //    O(N) is not good enough find O(logN) solution;
-//    Answer ---> Segement Tree
+//    Answer ---> Segment Tree
 //
-//            Segment --> perform gquesry on a range
+//            Segment --> perform guery on a range
 //    like--> (sum,max,avg,min,product)in range;
 //    in O(logN) time
 //    update O(logN);
